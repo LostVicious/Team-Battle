@@ -111,7 +111,7 @@ local OnPlayerActivated = function(inst)
 	GetTeams(inst)
 end
 
-local function OnPlayerJoined(inst)
+local function OnPlayerJoined()
 	print(inst:GetDisplayName().." spawned")
 end	
 
@@ -162,7 +162,7 @@ local function checkdeath(inst)
 	if TheNet:GetIsServer() then
 	print("this is server")
 	
-		for i, v in ipairs(AllPlayers) do
+		for i, v in ipairs(GLOBAL.AllPlayers) do
 		OnPlayerJoined(self, v)
 		end
 	inst:ListenForEvent("ms_playerjoined", OnPlayerJoined, TheWorld)
